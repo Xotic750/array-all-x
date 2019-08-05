@@ -1,6 +1,6 @@
 {
   "name": "array-all-x",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Like Array.forEach but does not skip holes.",
   "homepage": "https://github.com/Xotic750/array-all-x",
   "author": {

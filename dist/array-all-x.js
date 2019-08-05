@@ -2,11 +2,11 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2019-present",
-  "date": "2019-08-05T13:13:20.077Z",
+  "date": "2019-08-05T14:06:17.571Z",
   "describe": "",
   "description": "Like Array.forEach but does not skip holes.",
   "file": "array-all-x.js",
-  "hash": "f91e9776280dbf5f8b2f",
+  "hash": "5d7c0f8a94f5df43240b",
   "license": "MIT",
   "version": "1.0.0"
 }
@@ -1726,11 +1726,14 @@ var array_any_x_esm_any = function any(array, callBack
 var array_all_x_esm_all = function all(array, callBack
 /* , thisArg */
 ) {
-  array_any_x_esm(array, function iteratee() {
-    callBack.apply(void 0, arguments);
-  },
+  var iteratee = function iteratee() {
+    /* eslint-disable-next-line prefer-rest-params,babel/no-invalid-this */
+    callBack.call(this, arguments[0], arguments[1], arguments[2]);
+  };
   /* eslint-disable-next-line prefer-rest-params */
-  arguments[2]);
+
+
+  array_any_x_esm(array, iteratee, arguments[2]);
 };
 
 /* harmony default export */ var array_all_x_esm = __webpack_exports__["default"] = (array_all_x_esm_all);

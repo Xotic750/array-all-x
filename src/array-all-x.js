@@ -14,14 +14,13 @@ import any from 'array-any-x';
  */
 // eslint-enable jsdoc/check-param-names
 const all = function all(array, callBack /* , thisArg */) {
-  any(
-    array,
-    function iteratee(...args) {
-      callBack(...args);
-    },
-    /* eslint-disable-next-line prefer-rest-params */
-    arguments[2],
-  );
+  const iteratee = function iteratee() {
+    /* eslint-disable-next-line prefer-rest-params,babel/no-invalid-this */
+    callBack.call(this, arguments[0], arguments[1], arguments[2]);
+  };
+
+  /* eslint-disable-next-line prefer-rest-params */
+  any(array, iteratee, arguments[2]);
 };
 
 export default all;

@@ -16,11 +16,14 @@ import any from 'array-any-x'; // eslint-disable jsdoc/check-param-names
 var all = function all(array, callBack
 /* , thisArg */
 ) {
-  any(array, function iteratee() {
-    callBack.apply(void 0, arguments);
-  },
+  var iteratee = function iteratee() {
+    /* eslint-disable-next-line prefer-rest-params,babel/no-invalid-this */
+    callBack.call(this, arguments[0], arguments[1], arguments[2]);
+  };
   /* eslint-disable-next-line prefer-rest-params */
-  arguments[2]);
+
+
+  any(array, iteratee, arguments[2]);
 };
 
 export default all;
