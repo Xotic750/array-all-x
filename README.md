@@ -36,30 +36,41 @@
   alt="bettercodehub score" height="18">
 </a>
 
-<a name="module_module-boilerplate-x"></a>
+<a name="module_array-all-x"></a>
 
 ## array-all-x
 
-Boilerplate for standard modules.
+Like Array.forEach but does not skip holes.
 
-<a name="exp_module_module-boilerplate-x--module.exports"></a>
+<a name="exp_module_array-all-x--module.exports"></a>
 
-### `module.exports` ⇒ <code>\*</code> ⏏
+### `module.exports` ⏏
 
-This method is just a placeholder.
+This method executes a provided function once for each array element.
 
 **Kind**: Exported member  
-**Returns**: <code>\*</code> - The target.  
 **Throws**:
 
-- <code>Error</code> If target is not undefined.
+- <code>TypeError</code> If array is null or undefined.
+- <code>TypeError</code> If callBack is not a function.
 
-| Param    | Type            | Description |
-| -------- | --------------- | ----------- |
-| [target] | <code>\*</code> | The target. |
+| Param     | Type                  | Description                                   |
+| --------- | --------------------- | --------------------------------------------- |
+| array     | <code>array</code>    | The array to iterate over.                    |
+| callBack  | <code>function</code> | Function to execute for each element.         |
+| [thisArg] | <code>\*</code>       | Value to use as this when executing callback. |
 
 **Example**
 
 ```js
-import placeHolder from 'array-all-x';
+import all from 'array-all-x';
+
+const items = ['item1', 'item2', 'item3'];
+const copy = [];
+
+all(items, function(item) {
+  copy.push(item);
+});
+
+console.log(copy); // ['item1', 'item2', 'item3']
 ```
