@@ -1,4 +1,5 @@
 import any from 'array-any-x';
+import call from 'simple-call-x';
 
 // eslint-disable jsdoc/check-param-names
 // noinspection JSCommentMatchesSignature
@@ -14,13 +15,15 @@ import any from 'array-any-x';
  */
 // eslint-enable jsdoc/check-param-names
 const all = function all(array, callBack /* , thisArg */) {
-  const iteratee = function iteratee() {
-    /* eslint-disable-next-line prefer-rest-params,babel/no-invalid-this */
-    callBack.call(this, arguments[0], arguments[1], arguments[2]);
-  };
-
-  /* eslint-disable-next-line prefer-rest-params */
-  any(array, iteratee, arguments[2]);
+  any(
+    array,
+    function iteratee() {
+      /* eslint-disable-next-line prefer-rest-params,babel/no-invalid-this */
+      call(callBack, this, arguments);
+    },
+    /* eslint-disable-next-line prefer-rest-params */
+    arguments[2],
+  );
 };
 
 export default all;
