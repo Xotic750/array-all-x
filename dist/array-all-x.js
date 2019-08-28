@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2019-present",
-  "date": "2019-08-28T15:24:07.601Z",
+  "date": "2019-08-28T17:21:08.448Z",
   "describe": "",
   "description": "Like Array.forEach but does not skip holes.",
   "file": "array-all-x.js",
   "hash": "384377b9dc8ae8b963d7",
   "license": "MIT",
-  "version": "1.1.1"
+  "version": "1.1.2"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
