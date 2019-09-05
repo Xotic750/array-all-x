@@ -2,7 +2,7 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2019-present",
-  "date": "2019-09-04T23:23:36.621Z",
+  "date": "2019-09-05T19:31:51.394Z",
   "describe": "",
   "description": "Like Array.forEach but does not skip holes.",
   "file": "array-all-x.js",
